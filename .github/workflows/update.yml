@@ -1,0 +1,70 @@
+name: Update F-Droid repository
+
+# Rebuilds the signed index from the latest release APKs of both apps and publishes it to GitHub Pages.
+on:
+  schedule:
+    - cron: '17 3 * * *'
+  workflow_dispatch:
+  repository_dispatch:
+    types: [app-released]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install fdroidserver
+        run: sudo apt-get update -q && sudo apt-get install -y -q fdroidserver
+
+      - name: Restore the index signing key
+        env:
+          FDROID_KEYSTORE: ${{ secrets.FDROID_KEYSTORE }}
+        run: |
+          echo "$FDROID_KEYSTORE" | base64 -d > keystore.p12
+          chmod 600 keystore.p12 config.yml
+
+      - name: Download the latest APKs
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p repo/icons
+          cp icon.png repo/icons/icon.png
+          gh release download --repo wangmikuwang/WenYou-TextQuest --pattern '*.apk' --dir repo
+          gh release download --repo wangmikuwang/WenYou-TextQuest-Beta --pattern '*.apk' --dir repo
+          ls -la repo
+
+      - name: Generate the signed index
+        env:
+          FDROID_KEYSTORE_PASS: ${{ secrets.FDROID_KEYSTORE_PASS }}
+        run: fdroid update --pretty --use-date-from-apk
+
+      - name: Assemble the site
+        run: |
+          mkdir -p _site
+          cp -r repo _site/repo
+          cp site/index.html _site/index.html
+          rm -f keystore.p12
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-24.04
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

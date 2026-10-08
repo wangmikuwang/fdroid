@@ -1,0 +1,26 @@
+Categories:
+  - Games
+  - Reading
+License: GPL-3.0-only
+AuthorName: wangmikuwang
+WebSite: https://github.com/wangmikuwang/WenYou-TextQuest
+SourceCode: https://github.com/wangmikuwang/WenYou-TextQuest
+IssueTracker: https://github.com/wangmikuwang/WenYou-TextQuest/issues
+Changelog: https://github.com/wangmikuwang/WenYou-TextQuest/blob/main/CHANGELOG.md
+AntiFeatures:
+  - NSFW
+Name: 虹叙
+Summary: 多元人物与情感故事的文字冒险与 AI 叙事工坊
+Description: |-
+  虹叙是一款文字冒险平台：离线游玩作者编排的分支剧本，或接入你自己的大模型服务，让 AI 导演与角色陪你即兴共创。
+
+  * 分支剧本完全离线可玩，支持条件、变量、掷骰与多结局
+  * AI 导演模式：旁白、角色台词与思考过程分开显示
+  * 一句话生成完整剧情与人物，并可一句话修改
+  * 分支图与探索进度，成就与彩蛋
+  * 液态玻璃界面与可放大折射的透镜底栏
+  * 分享码与二维码导入导出，对局可导出为文本
+  * 内置多元取向的人物与故事；LGBT 与 18+ 内容各有独立开关，默认不显示成人内容
+  * 数据仅存本机，AI 请求直连你配置的服务商
+
+  需要 AI 的功能须自行配置 OpenAI 兼容、Anthropic 或 Gemini 协议的服务（也可使用本地 Ollama）。

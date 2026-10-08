@@ -1,0 +1,14 @@
+# fdroidserver configuration for the self-hosted repository.
+# Secrets come from the workflow environment; nothing sensitive is stored here.
+repo_url: https://wangmikuwang.github.io/fdroid/repo
+repo_name: 文游 F-Droid 仓库
+repo_description: >-
+  虹叙与星叙的 F-Droid 仓库。安装包与 GitHub Releases 发布的正式版相同、签名一致，
+  可与应用内更新互通。
+repo_icon: icon.png
+archive_older: 0
+repo_keyalias: wenyou-fdroid
+keystore: keystore.p12
+keystorepass: {env: FDROID_KEYSTORE_PASS}
+keypass: {env: FDROID_KEYSTORE_PASS}
+keydname: CN=wangmikuwang F-Droid Repo, O=wangmikuwang

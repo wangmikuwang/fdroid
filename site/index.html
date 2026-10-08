@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>文游 F-Droid 仓库</title>
+<meta name="description" content="虹叙与星叙的 F-Droid 仓库：添加后即可在 F-Droid 中安装和更新。">
+<style>
+  :root {
+    --bg: #f5f4f9; --card: #ffffff; --text: #1d1b22; --muted: #625e6c; --line: #e3e0ea;
+    --accent: #3d5ba9; --accent-text: #ffffff; --code: #efedf4;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #121117; --card: #1c1a22; --text: #ece9f2; --muted: #a8a3b3; --line: #2e2b36;
+      --accent: #9fb4ff; --accent-text: #0f1630; --code: #26232e; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text);
+    font: 16px/1.65 system-ui, -apple-system, "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif; }
+  main { max-width: 720px; margin: 0 auto; padding: 40px 16px 64px; }
+  h1 { font-size: 28px; margin: 0 0 6px; letter-spacing: .01em; }
+  .lead { color: var(--muted); margin: 0 0 28px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 20px; margin-bottom: 16px; }
+  .add { display: flex; flex-direction: column; gap: 14px; }
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 0 22px;
+    border-radius: 999px; background: var(--accent); color: var(--accent-text); font-weight: 600; text-decoration: none; border: 0;
+    font-size: 16px; cursor: pointer; }
+  .btn.secondary { background: transparent; color: var(--accent); border: 1px solid var(--line); }
+  .row { display: flex; flex-wrap: wrap; gap: 10px; }
+  code { display: block; background: var(--code); border-radius: 12px; padding: 10px 12px; font: 13px/1.5 ui-monospace, Menlo, Consolas, monospace;
+    overflow-wrap: anywhere; }
+  .label { font-size: 13px; color: var(--muted); margin: 0 0 4px; }
+  .apps { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+  .app { display: flex; gap: 14px; align-items: flex-start; }
+  .app img { width: 64px; height: 64px; border-radius: 16px; flex: none; }
+  .app h2 { font-size: 18px; margin: 0 0 2px; }
+  .app p { margin: 0 0 8px; color: var(--muted); font-size: 14px; }
+  .app a { color: var(--accent); font-size: 14px; }
+  ol { padding-left: 20px; margin: 8px 0 0; }
+  li { margin: 4px 0; }
+  .note { color: var(--muted); font-size: 14px; }
+  footer { color: var(--muted); font-size: 13px; margin-top: 32px; }
+  footer a { color: inherit; }
+</style>
+</head>
+<body>
+<main>
+  <h1>文游 F-Droid 仓库</h1>
+  <p class="lead">虹叙与星叙的官方 F-Droid 仓库。添加后，就能在 F-Droid 客户端里安装、自动更新。</p>
+
+  <section class="card add" aria-labelledby="add-title">
+    <h2 id="add-title" style="margin:0;font-size:18px">添加仓库</h2>
+    <div class="row">
+      <a class="btn" id="add-link" href="fdroidrepos://wangmikuwang.github.io/fdroid/repo?fingerprint=885F92BA3C2DDD5EE6F095BB3E6796A194E4EE88F558FB95FCB4C18388A5B9E6">在 F-Droid 中添加</a>
+      <button class="btn secondary" id="copy" type="button">复制仓库地址</button>
+    </div>
+    <div>
+      <p class="label">仓库地址</p>
+      <code id="repo-url">https://wangmikuwang.github.io/fdroid/repo</code>
+    </div>
+    <div>
+      <p class="label">仓库指纹（SHA-256，添加时可核对）</p>
+      <code>885F92BA3C2DDD5EE6F095BB3E6796A194E4EE88F558FB95FCB4C18388A5B9E6</code>
+    </div>
+    <p class="note" style="margin:0">手动添加：打开 F-Droid → 设置 → 仓库 → 右上角「+」，粘贴上面的地址。</p>
+  </section>
+
+  <section class="apps" aria-label="应用">
+    <article class="card app">
+      <img src="https://raw.githubusercontent.com/wangmikuwang/WenYou-TextQuest/main/docs/launcher-icon-preview.png" alt="虹叙图标">
+      <div>
+        <h2>虹叙</h2>
+        <p>多元人物与情感故事的文字冒险与 AI 叙事工坊</p>
+        <a href="https://github.com/wangmikuwang/WenYou-TextQuest">源代码与说明</a>
+      </div>
+    </article>
+    <article class="card app">
+      <img src="https://raw.githubusercontent.com/wangmikuwang/WenYou-TextQuest-Beta/main/docs/icon.png" alt="星叙图标">
+      <div>
+        <h2>星叙</h2>
+        <p>自编剧情、自定义角色与 AI 共创的文字冒险工坊</p>
+        <a href="https://github.com/wangmikuwang/WenYou-TextQuest-Beta">源代码与说明</a>
+      </div>
+    </article>
+  </section>
+
+  <section class="card">
+    <h2 style="margin:0;font-size:18px">说明</h2>
+    <ol>
+      <li>安装包与 GitHub Releases 发布的正式版完全相同、签名一致，可以与应用内更新互相覆盖升级。</li>
+      <li>仓库每天自动同步一次最新正式版。</li>
+      <li>两款应用均以 GPL-3.0 开源；部分内置内容为成人向（可在应用内关闭），因此在 F-Droid 中标注了 NSFW。</li>
+    </ol>
+  </section>
+
+  <footer>由 <a href="https://f-droid.org/docs/Setup_an_F-Droid_App_Repo/">fdroidserver</a> 生成并托管于 GitHub Pages。</footer>
+</main>
+<script>
+  document.getElementById('copy').addEventListener('click', async (e) => {
+    const url = document.getElementById('repo-url').textContent;
+    try { await navigator.clipboard.writeText(url); e.target.textContent = '已复制'; }
+    catch { e.target.textContent = '请长按地址复制'; }
+  });
+</script>
+</body>
+</html>
