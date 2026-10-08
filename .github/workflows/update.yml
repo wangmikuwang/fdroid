@@ -52,7 +52,7 @@ jobs:
         run: |
           mkdir -p _site
           cp -r repo _site/repo
-          cp site/index.html _site/index.html
+          cp -r site/. _site/
           rm -f keystore.p12
 
       - uses: actions/upload-pages-artifact@v3
