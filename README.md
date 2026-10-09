@@ -1,6 +1,6 @@
 # 文游 F-Droid 仓库
 
-[虹叙](https://github.com/wangmikuwang/WenYou-TextQuest)与[星叙](https://github.com/wangmikuwang/WenYou-TextQuest-Beta)的自建 F-Droid 仓库。
+[虹叙](https://github.com/wangmikuwang/HongXu-Android)与[星叙](https://github.com/wangmikuwang/XingXu-Android)的自建 F-Droid 仓库。
 
 ## 添加仓库
 

@@ -39,8 +39,8 @@ jobs:
         run: |
           mkdir -p repo/icons
           cp icon.png repo/icons/icon.png
-          gh release download --repo wangmikuwang/WenYou-TextQuest --pattern '*.apk' --dir repo
-          gh release download --repo wangmikuwang/WenYou-TextQuest-Beta --pattern '*.apk' --dir repo
+          gh release download --repo wangmikuwang/HongXu-Android --pattern '*.apk' --dir repo
+          gh release download --repo wangmikuwang/XingXu-Android --pattern '*.apk' --dir repo
           ls -la repo
 
       - name: Generate the signed index
