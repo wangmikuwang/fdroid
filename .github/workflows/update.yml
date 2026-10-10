@@ -27,7 +27,7 @@ jobs:
         # apt brings apksigner and the other tools; Ubuntu's androguard cannot read AGP 9 resources, so fdroidserver itself comes from PyPI.
         run: |
           sudo apt-get update -q && sudo apt-get install -y -q fdroidserver
-          sudo pip install -q --break-system-packages fdroidserver==2.4.5
+          sudo pip install -q --break-system-packages --ignore-installed androguard==4.1.4 fdroidserver==2.4.5
           hash -r && fdroid --version
 
       - name: Restore the index signing key
